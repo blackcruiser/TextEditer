@@ -4,26 +4,20 @@
 #include "stdafx.h"
 
 #include <cstddef>
-
-class BaseGlyph;
-
-struct ChildList
-{
-	BaseGlyph *item;
-	ChildList *next;
-};
+#include <list>
 
 class BaseGlyph 
 {
 public:
-	BaseGlyph(BaseGlyph *_parent);
+	BaseGlyph(BaseGlyph *parent);
 	~BaseGlyph();
 
+	void addChild(BaseGlyph *child);
 	virtual void draw(HDC hdc) = 0;
 
-private:
-	BaseGlyph *parent;
-	ChildList *childHead;
+protected:
+	BaseGlyph *_parent;
+	std::list<BaseGlyph *> _child;
 };
 
 #endif

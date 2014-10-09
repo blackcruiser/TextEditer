@@ -13,28 +13,34 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\glyph">
+      <UniqueIdentifier>{4af89fc0-fcd6-41cf-83f4-d9afeb220119}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\glyph">
+      <UniqueIdentifier>{982cb290-420b-4925-8e59-44b071cdb1a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="BaseGlyph.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="CharacterGlyph.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="BaseGlyph.cpp">
+      <Filter>源文件\glyph</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterGlyph.cpp">
+      <Filter>源文件\glyph</Filter>
+    </ClCompile>
+    <ClCompile Include="DocumentGlyph.cpp">
+      <Filter>源文件\glyph</Filter>
+    </ClCompile>
+    <ClCompile Include="RowGlyph.cpp">
+      <Filter>源文件\glyph</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BaseGlyph.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="CharacterGlyph.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -43,6 +49,18 @@
     </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseGlyph.h">
+      <Filter>头文件\glyph</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterGlyph.h">
+      <Filter>头文件\glyph</Filter>
+    </ClInclude>
+    <ClInclude Include="DocumentGlyph.h">
+      <Filter>头文件\glyph</Filter>
+    </ClInclude>
+    <ClInclude Include="rowGlyph.h">
+      <Filter>头文件\glyph</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

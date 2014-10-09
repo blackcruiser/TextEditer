@@ -76,13 +76,17 @@
   <ItemGroup>
     <ClCompile Include="BaseGlyph.cpp" />
     <ClCompile Include="CharacterGlyph.cpp" />
+    <ClCompile Include="DocumentGlyph.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RowGlyph.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseGlyph.h" />
     <ClInclude Include="CharacterGlyph.h" />
+    <ClInclude Include="DocumentGlyph.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="rowGlyph.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

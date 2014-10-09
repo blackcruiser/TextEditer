@@ -8,7 +8,7 @@
 class CharacterGlyph : public BaseGlyph
 {
 public:
-	CharacterGlyph(BaseGlyph *_parent);
+	CharacterGlyph(BaseGlyph *parent);
 	~CharacterGlyph();
 
 	virtual void draw(HDC hdc);
@@ -19,5 +19,5 @@ private:
 	int size;
 
 };
-
+	
 #endif
