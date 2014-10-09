@@ -2,6 +2,7 @@
 #define _BASEFORMATTER_H_
 
 #include "stdafx.h"
+#include "BaseGlyph.h"
 
 class BaseFormatter
 {
@@ -9,7 +10,7 @@ public:
 	BaseFormatter();
 	~BaseFormatter();
 
-	virtual void format() = 0;
+	virtual void format(BaseGlyph *root) = 0;
 };
 
 #endif

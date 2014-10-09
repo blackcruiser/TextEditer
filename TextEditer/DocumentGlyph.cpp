@@ -13,6 +13,6 @@ DocumentGlyph::~DocumentGlyph()
 
 void DocumentGlyph::draw(HDC hDc)
 {
-	for (std::list<BaseGlyph *>::iterator iter = _child.begin(); iter != _child.end(); iter++)
+	for (std::list<BaseGlyph *>::iterator iter = m_child.begin(); iter != m_child.end(); iter++)
 		(**iter).draw(hDc);
 }

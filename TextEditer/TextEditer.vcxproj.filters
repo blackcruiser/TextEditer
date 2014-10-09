@@ -19,6 +19,12 @@
     <Filter Include="源文件\glyph">
       <UniqueIdentifier>{982cb290-420b-4925-8e59-44b071cdb1a6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\formatter">
+      <UniqueIdentifier>{7176e14a-9113-4a54-b4d9-b986745b0e4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\formatter">
+      <UniqueIdentifier>{ebae59fd-8130-4653-b451-99224c954a8d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -38,6 +44,12 @@
     </ClCompile>
     <ClCompile Include="RowGlyph.cpp">
       <Filter>源文件\glyph</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseFormatter.cpp">
+      <Filter>源文件\formatter</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleFormatter.cpp">
+      <Filter>源文件\formatter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +73,12 @@
     </ClInclude>
     <ClInclude Include="rowGlyph.h">
       <Filter>头文件\glyph</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseFormatter.h">
+      <Filter>头文件\formatter</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleFormatter.h">
+      <Filter>头文件\formatter</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

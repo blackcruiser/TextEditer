@@ -10,7 +10,7 @@ public:
 	SimpleFormatter();
 	~SimpleFormatter();
 
-	virtual void format();
+	virtual void format(BaseGlyph *root);
 };
 
 #endif

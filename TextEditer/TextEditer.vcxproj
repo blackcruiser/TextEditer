@@ -50,6 +50,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -74,19 +75,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseFormatter.cpp" />
     <ClCompile Include="BaseGlyph.cpp" />
     <ClCompile Include="CharacterGlyph.cpp" />
     <ClCompile Include="DocumentGlyph.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RowGlyph.cpp" />
+    <ClCompile Include="SimpleFormatter.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseFormatter.h" />
     <ClInclude Include="BaseGlyph.h" />
     <ClInclude Include="CharacterGlyph.h" />
     <ClInclude Include="DocumentGlyph.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="rowGlyph.h" />
+    <ClInclude Include="SimpleFormatter.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

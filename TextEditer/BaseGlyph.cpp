@@ -2,7 +2,7 @@
 #include "BaseGlyph.h"
 
 BaseGlyph::BaseGlyph(BaseGlyph *parent):
-	_parent(parent)
+	m_parent(parent)
 {
 }
 
@@ -11,7 +11,12 @@ BaseGlyph::~BaseGlyph()
 
 }
 
+BaseGlyph * BaseGlyph::getParent()
+{
+	return m_parent;
+}
+
 void BaseGlyph::addChild(BaseGlyph *child)
 {
-	_child.push_back(child);
+	m_child.push_back(child);
 }

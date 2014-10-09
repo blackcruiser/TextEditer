@@ -12,12 +12,16 @@ public:
 	BaseGlyph(BaseGlyph *parent);
 	~BaseGlyph();
 
+	BaseGlyph *getParent();
 	void addChild(BaseGlyph *child);
+	void deleteChild();
+
 	virtual void draw(HDC hdc) = 0;
 
 protected:
-	BaseGlyph *_parent;
-	std::list<BaseGlyph *> _child;
+	BaseGlyph *m_parent;
+	std::list<BaseGlyph *> m_child;
+	Rect m_boundingBox;
 };
 
 #endif

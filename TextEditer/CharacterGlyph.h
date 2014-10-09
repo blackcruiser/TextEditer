@@ -14,9 +14,9 @@ public:
 	virtual void draw(HDC hdc);
 
 private:
-	LPTSTR text;
-	int font;
-	int size;
+	LPTSTR m_text;
+	int m_font;
+	int m_size;
 
 };
 	

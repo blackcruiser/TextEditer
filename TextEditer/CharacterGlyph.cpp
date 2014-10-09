@@ -2,7 +2,7 @@
 #include "CharacterGlyph.h"
 
 CharacterGlyph::CharacterGlyph(BaseGlyph *parent):
-	BaseGlyph(parent), text(_T("为何让 寂寞长 我在世界这一边")), font(0), size(20)
+	BaseGlyph(parent), m_text(_T("为何让 寂寞长 我在世界这一边")), m_font(0), m_size(20)
 {
 }
 
@@ -18,7 +18,7 @@ void CharacterGlyph::draw(HDC hdc)
 	RECT rect = {0, 0, 0, 0};
 	HFONT hFont;
 
-	hFont = CreateFont(size, 0, 0, 0, 0, FALSE, FALSE, FALSE, 
+	hFont = CreateFont(m_size, 0, 0, 0, 0, FALSE, FALSE, FALSE, 
 		ANSI_CHARSET, 
 		OUT_DEFAULT_PRECIS, 
 		CLIP_DEFAULT_PRECIS, 
@@ -28,8 +28,8 @@ void CharacterGlyph::draw(HDC hdc)
 
 	SelectObject(hdc, hFont);
 
-	DrawText(hdc, text, -1, &rect, DT_CALCRECT);
-	DrawText(hdc, text, -1, &rect, DT_LEFT | DT_TOP | DT_WORDBREAK);
+	DrawText(hdc, m_text, -1, &rect, DT_CALCRECT);
+	DrawText(hdc, m_text, -1, &rect, DT_LEFT | DT_TOP | DT_WORDBREAK);
 
 	DeleteObject(hFont);
 }
