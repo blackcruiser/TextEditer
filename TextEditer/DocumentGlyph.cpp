@@ -2,7 +2,7 @@
 #include "DocumentGlyph.h"
 
 DocumentGlyph::DocumentGlyph(BaseGlyph *parent) :
-	BaseGlyph(parent)
+	BaseGlyph(parent), leftMargin(10), rightMargin(0), topMargin(0), bottomMargin(0)
 {
 }
 
@@ -20,5 +20,5 @@ void DocumentGlyph::draw(HDC hDc)
 void DocumentGlyph::format()
 {
 	if (m_pFormatter != NULL)
-		m_pFormatter->format(m_child);
+		m_pFormatter->formatDocument(m_child, getBoundBox());
 }

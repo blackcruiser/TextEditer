@@ -80,6 +80,9 @@
     <ClInclude Include="SimpleFormatter.h">
       <Filter>头文件\formatter</Filter>
     </ClInclude>
+    <ClInclude Include="util.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="small.ico">

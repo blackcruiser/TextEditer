@@ -10,7 +10,8 @@ public:
 	SimpleFormatter();
 	~SimpleFormatter();
 
-	virtual void format(std::list<BaseGlyph *> child);
+	virtual void formatDocument(std::list<BaseGlyph *> child, Rect boundBox);
+	virtual void formatRow(std::list<BaseGlyph *> child, Rect boundBox);
 };
 
 #endif

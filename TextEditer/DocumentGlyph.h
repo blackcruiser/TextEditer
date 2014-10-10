@@ -15,6 +15,7 @@ public:
 	virtual void format();
 
 private:
+	int leftMargin, rightMargin, topMargin, bottomMargin;
 };
 
 #endif

@@ -13,6 +13,9 @@ public:
 
 	virtual void draw(HDC hdc);
 
+private:
+	int lineSpace, wordSpace;
+
 };
 
 #endif

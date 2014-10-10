@@ -34,3 +34,8 @@ BaseFormatter *BaseGlyph::deleteFormatter()
 	m_pFormatter = NULL;
 	return temp;
 }
+
+Rect BaseGlyph::getBoundBox()
+{
+	return m_boundBox;
+}

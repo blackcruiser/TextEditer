@@ -2,6 +2,7 @@
 #define _BASEGLYPH_H_
 
 #include "stdafx.h"
+#include "util.h"
 #include "BaseFormatter.h"
 
 #include <list>
@@ -17,6 +18,7 @@ public:
 	void deleteChild();
 	void addFormatter(BaseFormatter *formatter);
 	BaseFormatter *deleteFormatter();
+	Rect getBoundBox();
 
 	virtual void format() = 0;
 	virtual void draw(HDC hdc) = 0;
@@ -24,7 +26,7 @@ public:
 protected:
 	BaseGlyph *m_parent;
 	std::list<BaseGlyph *> m_child;
-	Rect m_boundingBox;
+	Rect m_boundBox;
 	BaseFormatter *m_pFormatter;
 };
 

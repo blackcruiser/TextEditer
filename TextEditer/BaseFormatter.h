@@ -10,7 +10,9 @@ public:
 	BaseFormatter();
 	~BaseFormatter();
 
-	virtual void format(std::list<BaseGlyph *> child) = 0;
+	virtual void formatDocument(std::list<BaseGlyph *> child, Rect boundBox) = 0;
+	virtual void formatRow(std::list<BaseGlyph *> child, Rect boundBox) = 0;
+
 };
 
 #endif
