@@ -11,7 +11,10 @@ SimpleFormatter::~SimpleFormatter()
 
 }
 
-void SimpleFormatter::format(BaseGlyph *root)
+void SimpleFormatter::format(std::list<BaseGlyph *> child)
 {
-	for (std::list<BaseGlyph *>::iterator iter = root->_child.begin(); iter != root->_child.end(); iter++)
+	std::list<BaseGlyph *>::iterator iter;
+
+	for (iter = child.begin(); iter != child.end(); iter++)
+
 }

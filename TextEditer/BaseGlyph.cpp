@@ -20,3 +20,17 @@ void BaseGlyph::addChild(BaseGlyph *child)
 {
 	m_child.push_back(child);
 }
+
+void BaseGlyph::addFormatter(BaseFormatter *formatter)
+{
+	m_pFormatter = formatter;
+}
+
+BaseFormatter *BaseGlyph::deleteFormatter()
+{
+	BaseFormatter *temp;
+
+	temp = m_pFormatter;
+	m_pFormatter = NULL;
+	return temp;
+}

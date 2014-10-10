@@ -10,7 +10,7 @@ public:
 	BaseFormatter();
 	~BaseFormatter();
 
-	virtual void format(BaseGlyph *root) = 0;
+	virtual void format(std::list<BaseGlyph *> child) = 0;
 };
 
 #endif

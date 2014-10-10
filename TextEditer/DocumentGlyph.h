@@ -12,6 +12,7 @@ public:
 	~DocumentGlyph();
 
 	virtual void draw(HDC hDc);
+	virtual void format();
 
 private:
 };
