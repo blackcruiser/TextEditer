@@ -9,12 +9,12 @@ class RowGlyph : public BaseGlyph
 {
 public:
 	RowGlyph(BaseGlyph *parent);
-	~RowGlyph();
+	virtual ~RowGlyph();
 
-	virtual void draw(HDC hdc);
+	virtual void draw(HDC hdc, Rect boundBox);
 
 private:
-	int lineSpace, wordSpace;
+	int m_wordSpace;
 
 };
 

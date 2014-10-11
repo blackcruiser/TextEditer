@@ -9,13 +9,13 @@ class DocumentGlyph : public BaseGlyph
 {
 public:
 	DocumentGlyph(BaseGlyph *parent);
-	~DocumentGlyph();
+	virtual ~DocumentGlyph();
 
-	virtual void draw(HDC hDc);
+	virtual void draw(HDC hDc, Rect boundBox);
 	virtual void format();
 
 private:
-	int leftMargin, rightMargin, topMargin, bottomMargin;
+	int m_leftMargin, m_rightMargin, m_topMargin, m_bottomMargin, m_lineSpace;
 };
 
 #endif

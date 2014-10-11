@@ -2,7 +2,11 @@
 #define _BASEFORMATTER_H_
 
 #include "stdafx.h"
-#include "BaseGlyph.h"
+#include "util.h"
+
+#include <list>
+
+class BaseGlyph;
 
 class BaseFormatter
 {
@@ -11,7 +15,7 @@ public:
 	~BaseFormatter();
 
 	virtual void formatDocument(std::list<BaseGlyph *> child, Rect boundBox) = 0;
-	virtual void formatRow(std::list<BaseGlyph *> child, Rect boundBox) = 0;
+	virtual void formatRow(BaseGlyph *row, std::list<BaseGlyph *> &child) = 0;
 
 };
 

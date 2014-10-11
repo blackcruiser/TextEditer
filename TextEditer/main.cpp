@@ -161,8 +161,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		hdc = BeginPaint(hWnd, &ps);
 		// TODO: 在此添加任意绘图代码...
 
-		CharacterGlyph g(NULL);
-		g.draw(hdc);
 
 		EndPaint(hWnd, &ps);
 		break;

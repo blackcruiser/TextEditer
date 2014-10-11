@@ -9,12 +9,12 @@ class CharacterGlyph : public BaseGlyph
 {
 public:
 	CharacterGlyph(BaseGlyph *parent);
-	~CharacterGlyph();
+	virtual ~CharacterGlyph();
 
-	virtual void draw(HDC hdc);
+	virtual void draw(HDC hdc, Rect boundBox);
 
 private:
-	LPTSTR m_text;
+	TCHAR m_text;
 	int m_font;
 	int m_size;
 
