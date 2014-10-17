@@ -14,10 +14,6 @@ public:
 	virtual void draw(HDC hdc, Rect boundBox);
 
 private:
-	TCHAR m_text;
-	int m_font;
-	int m_size;
-
-};
+}
 	
 #endif

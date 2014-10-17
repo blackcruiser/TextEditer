@@ -4,6 +4,7 @@
 #include "stdafx.h"
 
 #include "BaseGlyph.h"
+#include "RowGlyph.h"
 
 class DocumentGlyph : public BaseGlyph
 {
@@ -11,11 +12,15 @@ public:
 	DocumentGlyph(BaseGlyph *parent);
 	virtual ~DocumentGlyph();
 
+	static DocumentGlyph *createEmptyDoc();
+
 	virtual void draw(HDC hDc, Rect boundBox);
-	virtual void format();
+	void format();
 
 private:
-	int m_leftMargin, m_rightMargin, m_topMargin, m_bottomMargin, m_lineSpace;
+	std::list<RowGlyph *> rowList;
+	
+	
 };
 
 #endif

@@ -77,20 +77,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseCompositor.cpp" />
     <ClCompile Include="BaseFormatter.cpp" />
     <ClCompile Include="BaseGlyph.cpp" />
     <ClCompile Include="CharacterGlyph.cpp" />
     <ClCompile Include="DocumentGlyph.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ParagraphGlyph.cpp" />
     <ClCompile Include="RowGlyph.cpp" />
     <ClCompile Include="SimpleFormatter.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseCompositor.h" />
     <ClInclude Include="BaseFormatter.h" />
     <ClInclude Include="BaseGlyph.h" />
     <ClInclude Include="CharacterGlyph.h" />
     <ClInclude Include="DocumentGlyph.h" />
+    <ClInclude Include="ParagraphGlyph.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="rowGlyph.h" />
     <ClInclude Include="SimpleFormatter.h" />

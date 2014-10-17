@@ -16,18 +16,28 @@ BaseGlyph * BaseGlyph::getParent()
 	return m_parent;
 }
 
-void BaseGlyph::addChild(std::list<BaseGlyph *>::const_iterator pos, BaseGlyph *child)
+/*
+ * insert a child glyph before index 
+ * if index = -1, insert in the end
+ */
+void BaseGlyph::addChild(BaseGlyph *child, int index)
 {
-	m_child.insert(pos, child);
-	child->setPos(pos++);
-}
+	int count = 0; 
+	std::list<BaseGlyph *>::iterator iter;
 
-void BaseGlyph::addChild(int pos, BaseGlyph *child)
-{
-	if (pos == 0)
-		m_child.push_front(child);
-	else if (pos == -1)
-		m_child.push_back(child);
+    if (index == -1)
+    {
+        m_child.push_back(child);
+        return;
+    }
+
+    for (iter = m_child.begin(); iter != m_child.end(); iter++, count++) 
+    {
+       if (count == index)
+       {
+           m_child.insert(iter, child);
+       }
+    }
 }
 
 void BaseGlyph::deleteChild(BaseGlyph *child)
@@ -35,28 +45,41 @@ void BaseGlyph::deleteChild(BaseGlyph *child)
 	m_child.remove(child);
 }
 
-void BaseGlyph::setPos(std::list<BaseGlyph *>::const_iterator pos)
+BaseGlyph *BaseGlyph::getChild(int index)
 {
-	m_pos = pos;
+	int count = 0;
+	std::list<BaseGlyph *>::iterator iter;
+
+    for (iter = m_child.begin(); iter != m_child.end(); iter++, count++)
+    {
+        if (count == index)
+        {
+            return *iter;
+        }
+    }
 }
 
-std::list<BaseGlyph *>::const_iterator BaseGlyph::getPos()
+int BaseGlyph::getChildNum()
 {
-	return m_pos;
+    return m_child.size();
 }
 
-void BaseGlyph::addFormatter(BaseFormatter *formatter)
+void BaseGlyph::clearChild()
 {
-	m_pFormatter = formatter;
+	m_child.clear();
 }
 
-BaseFormatter *BaseGlyph::deleteFormatter()
+void BaseGlyph::setCompositor(BaseCompositor *compositor)
 {
-	BaseFormatter *temp;
+	m_compositor = compositor;
+}
 
-	temp = m_pFormatter;
-	m_pFormatter = NULL;
-	return temp;
+void BaseGlyph::compose()
+{
+	if (m_compositor != NULL)
+		m_compositor->compose(this);
+	else
+		throw _T("BaseGlyph::compose : m_compositor == NULL");
 }
 
 Rect BaseGlyph::getBoundBox()

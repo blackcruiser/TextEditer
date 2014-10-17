@@ -3,7 +3,8 @@
 
 #include "stdafx.h"
 #include "util.h"
-#include "BaseFormatter.h"
+
+#include "BaseCompositor.h"
 
 #include <list>
 
@@ -14,29 +15,25 @@ public:
 	virtual ~BaseGlyph();
 
 	BaseGlyph *getParent();
-	void addChild(std::list<BaseGlyph *>::const_iterator pos, BaseGlyph *child);
-	void addChild(int pos, BaseGlyph *child);
+	void addChild(BaseGlyph *child, int index);
 	void deleteChild(BaseGlyph *child);
-	void setPos(std::list<BaseGlyph *>::const_iterator pos);
-	std::list<BaseGlyph *>::const_iterator getPos();
+	void clearChild();
+	BaseGlyph* getChild(int index);
+    int getChildNum();
 
-	void addFormatter(BaseFormatter *formatter);
-	BaseFormatter *deleteFormatter();
+    void setCompositor(BaseCompositor *compositor);
+	void compose();
 
 	Rect getBoundBox();
 
-	virtual void format() = 0;
 	virtual void draw(HDC hdc, Rect boundBox) = 0;
 
 protected:
 	BaseGlyph *m_parent;
 	std::list<BaseGlyph *> m_child;
-	std::list<BaseGlyph *>::const_iterator m_pos;
+    BaseCompositor *m_compositor;
 
 	Rect m_boundBox;
-
-	BaseFormatter *m_pFormatter;
-
 };
 
 #endif
