@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "CharacterGlyph.h"
 
-CharacterGlyph::CharacterGlyph(BaseGlyph *parent, HDC *hDc):
-	BaseGlyph(parent, hDc)
+CharacterGlyph::CharacterGlyph(BaseGlyph *parent):
+	BaseGlyph(parent)
 {
 }
 

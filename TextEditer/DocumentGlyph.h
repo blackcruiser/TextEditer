@@ -18,7 +18,6 @@ public:
 	void format();
 
 private:
-	std::list<RowGlyph *> rowList;
 	
 	
 };

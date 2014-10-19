@@ -10,9 +10,11 @@ public:
 	virtual ~ParagraphGlyph();
 
 	virtual void draw(HDC hdc, Rect boundBox);
-	void compose();
+	void format();
 
 private:
+	std::list<BaseGlyph *> m_rowList;
+	std::list<CharacterFormat *> m_formatList;
 
 };
 
