@@ -79,10 +79,10 @@ void BaseGlyph::compose()
 	if (m_compositor != NULL)
 		m_compositor->compose(this);
 	else
-		throw _T("BaseGlyph::compose : m_compositor == NULL");
+		throw _T("compose : m_compositor == NULL");
 }
 
-Rect BaseGlyph::getBoundBox()
+void BaseGlyph::draw(Graphics g)
 {
-	return m_boundBox;
+	throw _T("draw : unsupport operation!");
 }

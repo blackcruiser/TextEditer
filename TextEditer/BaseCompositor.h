@@ -9,7 +9,7 @@ class BaseGlyph;
 class BaseCompositor
 {
 public:
-	virtual void compose(BaseGlyph *glyph);
+	virtual void compose(Grapyics g, BaseGlyph *glyph) = 0;
 
 
 };

@@ -13,7 +13,7 @@ CharacterGlyph::~CharacterGlyph()
 }
 
 
-void CharacterGlyph::draw(HDC hdc, Rect boundBox)
+void CharacterGlyph::draw(Graphics g)
 {
-
+	g.drawText(m_c);
 }

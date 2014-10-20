@@ -11,7 +11,7 @@ public:
 	RowGlyph(BaseGlyph *parent);
 	virtual ~RowGlyph();
 
-	virtual void draw(HDC hdc, Rect boundBox);
+	virtual void draw(Graphics g);
 
 private:
 	int m_wordSpace;

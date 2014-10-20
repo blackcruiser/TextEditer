@@ -51,17 +51,17 @@
     <ClCompile Include="RowGlyph.cpp">
       <Filter>源文件\glyph</Filter>
     </ClCompile>
-    <ClCompile Include="BaseFormatter.cpp">
-      <Filter>源文件\formatter</Filter>
-    </ClCompile>
-    <ClCompile Include="SimpleFormatter.cpp">
-      <Filter>源文件\formatter</Filter>
-    </ClCompile>
     <ClCompile Include="ParagraphGlyph.cpp">
       <Filter>源文件\glyph</Filter>
     </ClCompile>
     <ClCompile Include="BaseCompositor.cpp">
       <Filter>源文件\compositor</Filter>
+    </ClCompile>
+    <ClCompile Include="ParagraphCompositor.cpp">
+      <Filter>源文件\compositor</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterFormat.cpp">
+      <Filter>源文件\formatter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -74,23 +74,11 @@
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="BaseGlyph.h">
-      <Filter>头文件\glyph</Filter>
-    </ClInclude>
     <ClInclude Include="CharacterGlyph.h">
       <Filter>头文件\glyph</Filter>
     </ClInclude>
     <ClInclude Include="DocumentGlyph.h">
       <Filter>头文件\glyph</Filter>
-    </ClInclude>
-    <ClInclude Include="rowGlyph.h">
-      <Filter>头文件\glyph</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseFormatter.h">
-      <Filter>头文件\formatter</Filter>
-    </ClInclude>
-    <ClInclude Include="SimpleFormatter.h">
-      <Filter>头文件\formatter</Filter>
     </ClInclude>
     <ClInclude Include="util.h">
       <Filter>头文件</Filter>
@@ -100,6 +88,18 @@
     </ClInclude>
     <ClInclude Include="BaseCompositor.h">
       <Filter>头文件\compositor</Filter>
+    </ClInclude>
+    <ClInclude Include="RowGlyph.h">
+      <Filter>头文件\glyph</Filter>
+    </ClInclude>
+    <ClInclude Include="ParagraphCompositor.h">
+      <Filter>头文件\compositor</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseGlyph.h">
+      <Filter>头文件\glyph</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterFormat.h">
+      <Filter>头文件\formatter</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

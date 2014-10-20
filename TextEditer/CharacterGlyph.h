@@ -11,9 +11,10 @@ public:
 	CharacterGlyph(BaseGlyph *parent);
 	virtual ~CharacterGlyph();
 
-	virtual void draw(HDC hdc, Rect boundBox);
+	virtual void draw(Graphics g);
 
 private:
+	TCHAR m_c;
 }
 	
 #endif

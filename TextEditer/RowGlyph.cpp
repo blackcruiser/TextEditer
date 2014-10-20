@@ -12,14 +12,20 @@ RowGlyph::~RowGlyph()
 
 }
 
-void RowGlyph::draw(HDC hdc, Rect boundBox)
+void RowGlyph::draw(Graphics g)
 {
-	Rect cBoundBox;
+	int x, y;
 
-	cBoundBox = { boundBox.x, boundBox.y, 0, 0 };
+	x = g.getCurX();
+	y = g.getCurY();
+
 	for (std::list<BaseGlyph *>::iterator iter = m_child.begin(); iter != m_child.end(); iter++)
 	{
-		(*iter)->draw(hdc, cBoundBox);
-		cBoundBox.y += m_wordSpace;
+		
+		g.moveTo(x + , y + );
+		g.setFont(font);
+		g.setFont(size);
+		g.setStyle(style);
+		(*iter)->draw(Graphics g);
 	}
 }

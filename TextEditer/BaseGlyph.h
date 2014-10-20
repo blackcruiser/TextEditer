@@ -24,16 +24,12 @@ public:
     void setCompositor(BaseCompositor *compositor);
 	void compose();
 
-	Rect getBoundBox();
-
-	virtual void draw(HDC hdc, Rect boundBox) = 0;
+	virtual void draw(Graphics g);
 
 protected:
 	BaseGlyph *m_parent;
 	std::list<BaseGlyph *> m_child;
     BaseCompositor *m_compositor;
-
-	Rect m_boundBox;
 };
 
 #endif
