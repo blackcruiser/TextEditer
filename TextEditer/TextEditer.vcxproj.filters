@@ -63,6 +63,18 @@
     <ClCompile Include="CharacterFormat.cpp">
       <Filter>源文件\formatter</Filter>
     </ClCompile>
+    <ClCompile Include="ParagraphFormat.cpp">
+      <Filter>源文件\formatter</Filter>
+    </ClCompile>
+    <ClCompile Include="Frame.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -79,9 +91,6 @@
     </ClInclude>
     <ClInclude Include="DocumentGlyph.h">
       <Filter>头文件\glyph</Filter>
-    </ClInclude>
-    <ClInclude Include="util.h">
-      <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ParagraphGlyph.h">
       <Filter>头文件\glyph</Filter>
@@ -100,6 +109,21 @@
     </ClInclude>
     <ClInclude Include="CharacterFormat.h">
       <Filter>头文件\formatter</Filter>
+    </ClInclude>
+    <ClInclude Include="ParagraphFormat.h">
+      <Filter>头文件\formatter</Filter>
+    </ClInclude>
+    <ClInclude Include="View.cpp">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Frame.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

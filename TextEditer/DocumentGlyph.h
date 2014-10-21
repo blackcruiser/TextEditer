@@ -14,7 +14,7 @@ public:
 
 	static DocumentGlyph *createEmptyDoc();
 
-	virtual void draw(HDC hDc, Rect boundBox);
+	virtual void draw(Graphics *g);
 	void format();
 
 private:

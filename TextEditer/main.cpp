@@ -3,7 +3,6 @@
 
 #include "stdafx.h"
 #include "Resource.h"
-#include "CharacterGlyph.h"
 
 #define MAX_LOADSTRING 100
 

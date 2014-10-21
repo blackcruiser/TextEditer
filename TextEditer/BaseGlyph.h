@@ -2,9 +2,8 @@
 #define _BASEGLYPH_H_
 
 #include "stdafx.h"
-#include "util.h"
-
 #include "BaseCompositor.h"
+#include "Graphics.h"
 
 #include <list>
 
@@ -24,7 +23,7 @@ public:
     void setCompositor(BaseCompositor *compositor);
 	void compose();
 
-	virtual void draw(Graphics g);
+	virtual void draw(Graphics *g);
 
 protected:
 	BaseGlyph *m_parent;

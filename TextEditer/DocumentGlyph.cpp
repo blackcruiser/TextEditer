@@ -19,7 +19,7 @@ DocumentGlyph *DocumentGlyph::createEmptyDoc()
 
 }
 
-void DocumentGlyph::draw(HDC hDc, Rect boundBox)
+void DocumentGlyph::draw(Graphics *g)
 {
 
 }
