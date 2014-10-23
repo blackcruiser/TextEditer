@@ -1,9 +1,14 @@
 #include "stdafx.h"
 #include "CharacterFormat.h"
 
-CharacterFormat::CharacterFormat()
+CharacterFormat::CharacterFormat(int start, int end, FzFont font, FzSize size, FzStyle style)
 {
+	m_start = start;
+	m_end = end;
 
+	m_font = font;
+	m_size = size;
+	m_style = style;
 }
 
 CharacterFormat::~CharacterFormat()
@@ -31,31 +36,31 @@ void CharacterFormat::setEnd(int end)
 	m_end = end;
 }
 
-void CharacterFormat::setFont(fzFont font)
+void CharacterFormat::setFont(FzFont font)
 {
 	m_font = font;
 }
 
-fzFont CharacterFormat::getFont()
+FzFont CharacterFormat::getFont()
 {
 	return m_font;
 }
 
-void CharacterFormat::setSize(fzSize size)
+void CharacterFormat::setSize(FzSize size)
 {
 	m_size = size;
 }
-fzSize CharacterFormat::getSize()
+FzSize CharacterFormat::getSize()
 {
 	return m_size;
 }
 
-void CharacterFormat::setStyle(fzStyle style)
+void CharacterFormat::setStyle(FzStyle style)
 {
-	m_style = style
+	m_style = style;
 }
 
-fzStyle CharacterFormat::getStyle()
+FzStyle CharacterFormat::getStyle()
 {
 	return m_style;
 }

@@ -57,6 +57,8 @@ BaseGlyph *BaseGlyph::getChild(int index)
             return *iter;
         }
     }
+
+	return NULL;
 }
 
 int BaseGlyph::getChildNum()
@@ -74,15 +76,15 @@ void BaseGlyph::setCompositor(BaseCompositor *compositor)
 	m_compositor = compositor;
 }
 
-void BaseGlyph::compose()
+void BaseGlyph::compose(Graphics *g)
 {
 	if (m_compositor != NULL)
-		m_compositor->compose(this);
+		m_compositor->compose(g, this);
 	else
 		throw _T("compose : m_compositor == NULL");
 }
 
-void BaseGlyph::draw(Graphics g)
+void BaseGlyph::draw(Graphics *g)
 {
 	throw _T("draw : unsupport operation!");
 }

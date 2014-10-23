@@ -1,9 +1,9 @@
+#include "stdafx.h"
 #include "View.h"
 
 View::View()
 {
 	m_document = new DocumentGlyph(NULL);
-
 }
 
 View::~View()

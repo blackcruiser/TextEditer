@@ -15,11 +15,13 @@ private:
 public:
 	~Frame();
 
-	//singleletonģʽ
+	//singleleton
 	static Frame *getInstance();
 
+	void init();
+
 	LRESULT CALLBACK Frame::wndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
-	ATOM Frame::registerClass(HINSTANCE hInstance);
+	ATOM Frame::registerClass();
 	void update();
 
 private:

@@ -6,7 +6,7 @@
 class ParagraphCompositor : public BaseCompositor
 {
 public:
-	virtual void compose(Grapyics g, BaseGlyph *glyph);
+	virtual void compose(Graphics *g, BaseGlyph *glyph);
 };
 
 

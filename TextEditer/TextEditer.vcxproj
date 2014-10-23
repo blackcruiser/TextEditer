@@ -84,13 +84,13 @@
     <ClCompile Include="DocumentGlyph.cpp" />
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="Graphics.cpp" />
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="ParagraphCompositor.cpp" />
     <ClCompile Include="ParagraphFormat.cpp" />
     <ClCompile Include="ParagraphGlyph.cpp" />
     <ClCompile Include="RowGlyph.cpp" />
     <ClCompile Include="CharacterFormat.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseCompositor.h" />
@@ -98,6 +98,9 @@
     <ClInclude Include="CharacterGlyph.h" />
     <ClInclude Include="DocumentGlyph.h" />
     <ClInclude Include="Frame.h" />
+    <ClInclude Include="FzFont.h" />
+    <ClInclude Include="FzSize.h" />
+    <ClInclude Include="FzStyle.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="ParagraphCompositor.h" />
     <ClInclude Include="ParagraphFormat.h" />
@@ -107,7 +110,6 @@
     <ClInclude Include="CharacterFormat.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="View.cpp" />
     <ClInclude Include="View.h" />
   </ItemGroup>
   <ItemGroup>

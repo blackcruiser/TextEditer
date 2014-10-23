@@ -1,23 +1,17 @@
-#include "Frame.h"
+#include "stdafx.h"
 #include "Resource.h"
+#include "Frame.h"
 
+Frame* Frame::m_instance = NULL;
+
+LRESULT CALLBACK windowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	return Frame::getInstance()->wndProc(hWnd, message, wParam, lParam);
+}
 
 
 Frame::Frame()
 {
-	LoadString((HINSTANCE)GetModuleHandle(0), IDS_APP_TITLE, m_szTitle, MAX_LOADSTRING);
-	LoadString((HINSTANCE)GetModuleHandle(0), IDS_APP_TITLE, m_szWindowClass, MAX_LOADSTRING);
-
-	m_hWnd = CreateWindow(m_szWindowClass, m_szTitle, WS_OVERLAPPEDWINDOW,
-		CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, NULL, NULL, (HINSTANCE)GetModuleHandle(0), NULL);
-	if (!m_hWnd)
-		throw _T("Frame : m_hWnd == NULL");
-
-
-	m_view = new View();
-	
-	m_g = new Graphics();
-	m_g->setDc(GetDC(m_hWnd));
 }
 
 Frame::~Frame()
@@ -26,26 +20,46 @@ Frame::~Frame()
 	delete m_g;
 }
 
-Frame *Frame::getInstance()
+void Frame::init()
 {
-	if (m_instance == NULL)
-		m_instance = new Frame();
+	LoadString((HINSTANCE)GetModuleHandle(0), IDS_APP_TITLE, m_szTitle, MAX_LOADSTRING);
+	LoadString((HINSTANCE)GetModuleHandle(0), IDS_APP_TITLE, m_szWindowClass, MAX_LOADSTRING);
 
-	return m_instance;
+	registerClass();
+	m_hWnd = CreateWindow(m_szWindowClass, m_szTitle, WS_OVERLAPPEDWINDOW,
+		CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, NULL, NULL, (HINSTANCE)GetModuleHandle(0), NULL);
+	if (!m_hWnd)
+		throw _T("Frame : m_hWnd == NULL");
+
+	ShowWindow(m_hWnd, SW_SHOWNORMAL);
+	UpdateWindow(m_hWnd);
+
+	m_view = new View();
+
+	m_g = new Graphics();
+	m_g->setDc(GetDC(m_hWnd));
 }
 
-ATOM Frame::registerClass(HINSTANCE hInstance)
+Frame *Frame::getInstance()
+{
+	if (Frame::m_instance == NULL)
+		Frame::m_instance = new Frame();
+
+	return Frame::m_instance;
+}
+
+ATOM Frame::registerClass()
 {
 	WNDCLASSEX wcex;
 
 	wcex.cbSize = sizeof(WNDCLASSEX);
 
 	wcex.style = CS_HREDRAW | CS_VREDRAW;
-	wcex.lpfnWndProc = Frame::getInstance()->wndProc;
+	wcex.lpfnWndProc = windowProc;
 	wcex.cbClsExtra = 0;
 	wcex.cbWndExtra = 0;
 	wcex.hInstance = (HINSTANCE)GetModuleHandle(0);
-	wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_TEXTEDITER));
+	wcex.hIcon = LoadIcon((HINSTANCE)GetModuleHandle(0), MAKEINTRESOURCE(IDI_TEXTEDITER));
 	wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
 	wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
 	wcex.lpszMenuName = MAKEINTRESOURCE(IDC_TEXTEDITER);
@@ -55,7 +69,7 @@ ATOM Frame::registerClass(HINSTANCE hInstance)
 	return RegisterClassEx(&wcex);
 }
 
-LRESULT CALLBACK Frame::wndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+LRESULT Frame::wndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	int wmId, wmEvent;
 
@@ -64,7 +78,7 @@ LRESULT CALLBACK Frame::wndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM l
 	case WM_COMMAND:
 		wmId = LOWORD(wParam);
 		wmEvent = HIWORD(wParam);
-		// 分析菜单选择:
+		// 鍒嗘瀽鑿滃崟閫夋嫨:
 		switch (wmId)
 		{
 		case IDM_EXIT:
@@ -94,7 +108,7 @@ void Frame::update()
 	HDC hdc;
 
 	hdc = BeginPaint(m_hWnd, &ps);
-	// TODO: 在此添加任意绘图代码...
+	// TODO: 鍦ㄦ娣诲姞浠绘剰缁樺浘浠ｇ爜...
 	m_view->draw(m_g); 
 
 	EndPaint(m_hWnd, &ps);

@@ -2,31 +2,34 @@
 #define _CHARACTERFORMAT_H_
 
 #include "stdafx.h"
+#include "FzFont.h"
+#include "FzSize.h"
+#include "FzStyle.h"
 
 class CharacterFormat 
 {
 public:
-	CharacterFormat();
+	CharacterFormat(int start, int end, FzFont font, FzSize size, FzStyle style);
 	~CharacterFormat();
 
 	int getStart();
 	int getEnd();
-	int setStart(int start);
-	int setEnd(int end);
+	void setStart(int start);
+	void setEnd(int end);
 
-	void setFont(fzFont font);
-	fzFont getFont();
-	void setSize(fzSize size);
-	fzSize getFont();
-	void setStyle(fzStyle style);
-	fzStyle getFont();
+	void setFont(FzFont font);
+	FzFont getFont();
+	void setSize(FzSize size);
+	FzSize getSize();
+	void setStyle(FzStyle style);
+	FzStyle getStyle();
 
 private:
 	int m_start, m_end;
 
-	fzFont m_font;
-	fzSize m_size;
-	fzStyle m_style;
+	FzFont m_font;
+	FzSize m_size;
+	FzStyle m_style;
 };
 
 #endif

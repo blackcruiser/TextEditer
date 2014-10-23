@@ -31,11 +31,14 @@
     <Filter Include="头文件\compositor">
       <UniqueIdentifier>{75b90d77-57f8-440a-8eb8-439a40a41ec3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\GUI">
+      <UniqueIdentifier>{8b0a1261-ccf2-48e7-ad7a-4461179d07e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\GUI">
+      <UniqueIdentifier>{c14df5c3-50fa-410f-a33d-9db1ca0e8c7b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -69,10 +72,13 @@
     <ClCompile Include="Frame.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics.cpp">
+    <ClCompile Include="Application.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Application.cpp">
+    <ClCompile Include="Graphics.cpp">
+      <Filter>源文件\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="View.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -113,9 +119,6 @@
     <ClInclude Include="ParagraphFormat.h">
       <Filter>头文件\formatter</Filter>
     </ClInclude>
-    <ClInclude Include="View.cpp">
-      <Filter>源文件</Filter>
-    </ClInclude>
     <ClInclude Include="View.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -123,7 +126,16 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Graphics.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="FzSize.h">
+      <Filter>头文件\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="FzStyle.h">
+      <Filter>头文件\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="FzFont.h">
+      <Filter>头文件\GUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

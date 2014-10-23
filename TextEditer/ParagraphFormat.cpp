@@ -1,10 +1,11 @@
+#include "stdafx.h"
 #include "ParagraphFormat.h"
 
 ParagraphFormat::ParagraphFormat()
 {
 }
 
-ParagraphFormat::ParagraphFormat()
+ParagraphFormat::~ParagraphFormat()
 {
 
 }

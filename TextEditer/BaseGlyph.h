@@ -21,7 +21,7 @@ public:
     int getChildNum();
 
     void setCompositor(BaseCompositor *compositor);
-	void compose();
+	void compose(Graphics *g);
 
 	virtual void draw(Graphics *g);
 
