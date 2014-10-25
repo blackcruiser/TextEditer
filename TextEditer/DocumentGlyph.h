@@ -4,21 +4,22 @@
 #include "stdafx.h"
 
 #include "BaseGlyph.h"
-#include "RowGlyph.h"
+#include "BaseCompositor.h"
 
 class DocumentGlyph : public BaseGlyph
 {
 public:
 	DocumentGlyph(BaseGlyph *parent);
 	virtual ~DocumentGlyph();
-
 	static DocumentGlyph *createEmptyDoc();
 
+	void setCompositor(BaseCompositor *compositor);
+	BaseGlyph *compose(Graphics *g);
 	virtual void draw(Graphics *g);
-	void format();
+
 
 private:
-	
+	BaseCompositor *m_compositor;
 	
 };
 

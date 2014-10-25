@@ -71,17 +71,13 @@ void BaseGlyph::clearChild()
 	m_child.clear();
 }
 
-void BaseGlyph::setCompositor(BaseCompositor *compositor)
+BaseIterator *BaseGlyph::createIterator()
 {
-	m_compositor = compositor;
-}
+	BaseIterator *iter;
 
-void BaseGlyph::compose(Graphics *g)
-{
-	if (m_compositor != NULL)
-		m_compositor->compose(g, this);
-	else
-		throw _T("compose : m_compositor == NULL");
+	iter = new BaseIterator();
+	iter->setContainer(&m_child);
+	return iter;
 }
 
 void BaseGlyph::draw(Graphics *g)

@@ -3,10 +3,7 @@
 
 #include "stdafx.h"
 #include "BaseGlyph.h"
-#include "fzFont.h"
-#include "FzSize.h"
-#include "FzStyle.h"
-#include "CharacterFormat.h"
+#include "RowFormat.h"
 
 class ParagraphGlyph : public BaseGlyph
 {
@@ -14,11 +11,9 @@ public:
 	ParagraphGlyph(BaseGlyph *parent);
 	virtual ~ParagraphGlyph();
 
-	void format(int start, int end, FzFont font, FzSize size, FzStyle style);
-
 private:
-	std::list<BaseGlyph *> m_rowList;
-	std::list<CharacterFormat *> m_formatList;
+	RowFormat *m_rowFormat;
+
 
 };
 

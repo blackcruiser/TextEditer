@@ -1,11 +1,11 @@
-#ifndef _PARAGRAPHFORMAT_H_
-#define _PARAGRAPHFORMAT_H_
+#ifndef _ROWFORMAT_H_
+#define _ROWFORMAT_H_
 
-class ParagraphFormat
+class RowFormat
 {
 public:
-	ParagraphFormat();
-	~ParagraphFormat();
+	RowFormat();
+	~RowFormat();
 
 	int getWidth();
 

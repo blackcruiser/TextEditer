@@ -27,3 +27,15 @@ void Graphics::getCurPox(int &x, int &y)
 	y = m_y;
 }
 
+void Graphics::setRange(int width, int height)
+{
+	m_width = width;
+	m_height = height;
+}
+
+void Graphics::getRange(int &width, int &height)
+{
+	width = m_width;
+	height = m_height;
+}
+

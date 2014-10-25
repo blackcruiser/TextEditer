@@ -2,8 +2,8 @@
 #define _BASEGLYPH_H_
 
 #include "stdafx.h"
-#include "BaseCompositor.h"
 #include "Graphics.h"
+#include "BaseIterator.h"
 
 #include <list>
 
@@ -19,16 +19,13 @@ public:
 	void clearChild();
 	BaseGlyph* getChild(int index);
     int getChildNum();
-
-    void setCompositor(BaseCompositor *compositor);
-	void compose(Graphics *g);
+	BaseIterator *createIterator();
 
 	virtual void draw(Graphics *g);
 
 protected:
 	BaseGlyph *m_parent;
 	std::list<BaseGlyph *> m_child;
-    BaseCompositor *m_compositor;
 };
 
 #endif

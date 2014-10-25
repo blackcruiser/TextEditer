@@ -37,6 +37,12 @@
     <Filter Include="源文件\GUI">
       <UniqueIdentifier>{c14df5c3-50fa-410f-a33d-9db1ca0e8c7b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Iterator">
+      <UniqueIdentifier>{92889b6f-cd66-4941-b12b-5e82a3278775}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Iterator">
+      <UniqueIdentifier>{136b6c51-6125-4c2e-bcb6-5e082ddcf639}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -54,19 +60,10 @@
     <ClCompile Include="RowGlyph.cpp">
       <Filter>源文件\glyph</Filter>
     </ClCompile>
-    <ClCompile Include="ParagraphGlyph.cpp">
-      <Filter>源文件\glyph</Filter>
-    </ClCompile>
     <ClCompile Include="BaseCompositor.cpp">
       <Filter>源文件\compositor</Filter>
     </ClCompile>
-    <ClCompile Include="ParagraphCompositor.cpp">
-      <Filter>源文件\compositor</Filter>
-    </ClCompile>
     <ClCompile Include="CharacterFormat.cpp">
-      <Filter>源文件\formatter</Filter>
-    </ClCompile>
-    <ClCompile Include="ParagraphFormat.cpp">
       <Filter>源文件\formatter</Filter>
     </ClCompile>
     <ClCompile Include="Frame.cpp">
@@ -80,6 +77,24 @@
     </ClCompile>
     <ClCompile Include="View.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PageGlyph.cpp">
+      <Filter>源文件\glyph</Filter>
+    </ClCompile>
+    <ClCompile Include="PageFormat.cpp">
+      <Filter>源文件\formatter</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleCompositor.cpp">
+      <Filter>源文件\compositor</Filter>
+    </ClCompile>
+    <ClCompile Include="ParagraphGlyph.cpp">
+      <Filter>源文件\glyph</Filter>
+    </ClCompile>
+    <ClCompile Include="RowFormat.cpp">
+      <Filter>源文件\formatter</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseIterator.cpp">
+      <Filter>源文件\Iterator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,25 +113,16 @@
     <ClInclude Include="DocumentGlyph.h">
       <Filter>头文件\glyph</Filter>
     </ClInclude>
-    <ClInclude Include="ParagraphGlyph.h">
-      <Filter>头文件\glyph</Filter>
-    </ClInclude>
     <ClInclude Include="BaseCompositor.h">
       <Filter>头文件\compositor</Filter>
     </ClInclude>
     <ClInclude Include="RowGlyph.h">
       <Filter>头文件\glyph</Filter>
     </ClInclude>
-    <ClInclude Include="ParagraphCompositor.h">
-      <Filter>头文件\compositor</Filter>
-    </ClInclude>
     <ClInclude Include="BaseGlyph.h">
       <Filter>头文件\glyph</Filter>
     </ClInclude>
     <ClInclude Include="CharacterFormat.h">
-      <Filter>头文件\formatter</Filter>
-    </ClInclude>
-    <ClInclude Include="ParagraphFormat.h">
       <Filter>头文件\formatter</Filter>
     </ClInclude>
     <ClInclude Include="View.h">
@@ -136,6 +142,24 @@
     </ClInclude>
     <ClInclude Include="FzFont.h">
       <Filter>头文件\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="PageGlyph.h">
+      <Filter>头文件\glyph</Filter>
+    </ClInclude>
+    <ClInclude Include="PageFormat.h">
+      <Filter>头文件\formatter</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleCompositor.h">
+      <Filter>头文件\compositor</Filter>
+    </ClInclude>
+    <ClInclude Include="ParagraphGlyph.h">
+      <Filter>头文件\glyph</Filter>
+    </ClInclude>
+    <ClInclude Include="RowFormat.h">
+      <Filter>头文件\formatter</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseIterator.h">
+      <Filter>头文件\Iterator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

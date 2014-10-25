@@ -38,14 +38,15 @@ void Frame::init()
 
 	m_g = new Graphics();
 	m_g->setDc(GetDC(m_hWnd));
+	m_g->setRange();
 }
 
 Frame *Frame::getInstance()
 {
-	if (Frame::m_instance == NULL)
-		Frame::m_instance = new Frame();
+	if (m_instance == NULL)
+		m_instance = new Frame();
 
-	return Frame::m_instance;
+	return m_instance;
 }
 
 ATOM Frame::registerClass()
