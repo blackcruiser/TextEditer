@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "Graphics.h"
 
-Graphics::Graphics()
+Graphics::Graphics() :
+m_hDc(NULL)
 {
 
 }
@@ -15,27 +16,33 @@ void Graphics::setDc(HDC hDc)
 	m_hDc = hDc;
 }
 
-void Graphics::moveTo(int x, int y)
+void Graphics::drawText(int x, int y, TCHAR *szBuffer, int len, FzFont *font, FzSize *size, FzStyle *style)
 {
-	m_x = x;
-	m_y = y;
+	HFONT temp, hFont;
+
+	hFont = CreateFont(size->height, 0, 0, 0, 0, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH, _T("ËÎÌו"));
+	temp = (HFONT)SelectObject(m_hDc, hFont);
+
+	TextOut(m_hDc, x, y, szBuffer, len);
+
+	SelectObject(m_hDc, temp);
+	DeleteObject(hFont);
 }
 
-void Graphics::getCurPox(int &x, int &y)
+void Graphics::getTextBound(TCHAR *szBuffer, int len, FzFont *font, FzSize *size, FzStyle *style, FzRect &rect)
 {
-	x = m_x;
-	y = m_y;
-}
+	RECT wRect = { 0, 0, 0, 0 };
+	HFONT temp, hFont;
 
-void Graphics::setRange(int width, int height)
-{
-	m_width = width;
-	m_height = height;
-}
+	hFont = CreateFont(size->height, 0, 0, 0, 0, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH, _T("ËÎÌו"));
+	temp = (HFONT)SelectObject(m_hDc, hFont);
 
-void Graphics::getRange(int &width, int &height)
-{
-	width = m_width;
-	height = m_height;
+	DrawText(m_hDc, szBuffer, len, &wRect, DT_CENTER | DT_CALCRECT);
+
+	SelectObject(m_hDc, temp);
+	DeleteObject(hFont);
+
+	rect.width = wRect.right - wRect.left + 1;
+	rect.height = wRect.bottom - wRect.top + 1;
 }
 

@@ -5,21 +5,27 @@
 
 #include "BaseGlyph.h"
 #include "BaseCompositor.h"
+#include "PageFormat.h"
 
 class DocumentGlyph : public BaseGlyph
 {
 public:
 	DocumentGlyph(BaseGlyph *parent);
+	DocumentGlyph();
 	virtual ~DocumentGlyph();
 	static DocumentGlyph *createEmptyDoc();
 
+	PageFormat *setPageFormat(PageFormat *pageFormat);
+	PageFormat *getPageFormat();
+
 	void setCompositor(BaseCompositor *compositor);
 	BaseGlyph *compose(Graphics *g);
-	virtual void draw(Graphics *g);
 
 
 private:
 	BaseCompositor *m_compositor;
+	PageFormat *m_pageFormat;
+
 	
 };
 

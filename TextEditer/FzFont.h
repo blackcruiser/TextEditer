@@ -3,9 +3,14 @@
 
 #include "stdafx.h"
 
+enum FontName
+{
+	song
+};
+
 class FzFont
 {
-
+	FontName name;
 };
 
 #endif

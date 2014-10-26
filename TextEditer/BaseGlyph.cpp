@@ -6,16 +6,26 @@ BaseGlyph::BaseGlyph(BaseGlyph *parent):
 {
 }
 
+BaseGlyph::BaseGlyph():
+	m_parent(NULL)
+{
+
+}
+
 BaseGlyph::~BaseGlyph()
 {
 
 }
 
-BaseGlyph * BaseGlyph::getParent()
+BaseGlyph *BaseGlyph::getParent()
 {
 	return m_parent;
 }
 
+void BaseGlyph::setParent(BaseGlyph *parent)
+{
+	m_parent = parent;
+}
 /*
  * insert a child glyph before index 
  * if index = -1, insert in the end
@@ -80,7 +90,12 @@ BaseIterator *BaseGlyph::createIterator()
 	return iter;
 }
 
-void BaseGlyph::draw(Graphics *g)
+void BaseGlyph::getBound(Graphics *g, FzRect &rect)
+{
+	throw _T("draw : unsupport operation!");
+}
+
+void BaseGlyph::draw(Graphics *g, int x, int y)
 {
 	throw _T("draw : unsupport operation!");
 }

@@ -3,9 +3,9 @@
 
 #include "stdafx.h"
 
-class FzSize
+struct FzSize
 {
-
+	int height;
 };
 
 #endif

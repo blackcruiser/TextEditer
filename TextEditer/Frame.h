@@ -2,7 +2,7 @@
 #define _FRAME_H_
 
 #include "stdafx.h"
-#include "View.h"
+#include "DocumentGlyph.h"
 #include "Graphics.h"
 
 #define MAX_LOADSTRING 100
@@ -30,7 +30,8 @@ private:
 	TCHAR m_szWindowClass[MAX_LOADSTRING], m_szTitle[MAX_LOADSTRING];
 
 	HWND m_hWnd;
-	View *m_view;
+	DocumentGlyph *m_docment;
+	BaseGlyph *m_view;
 	Graphics *m_g;
 
 };

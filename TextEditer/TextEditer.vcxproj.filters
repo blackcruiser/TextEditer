@@ -75,9 +75,6 @@
     <ClCompile Include="Graphics.cpp">
       <Filter>源文件\GUI</Filter>
     </ClCompile>
-    <ClCompile Include="View.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="PageGlyph.cpp">
       <Filter>源文件\glyph</Filter>
     </ClCompile>
@@ -95,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="BaseIterator.cpp">
       <Filter>源文件\Iterator</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewGlyph.cpp">
+      <Filter>源文件\glyph</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -124,9 +124,6 @@
     </ClInclude>
     <ClInclude Include="CharacterFormat.h">
       <Filter>头文件\formatter</Filter>
-    </ClInclude>
-    <ClInclude Include="View.h">
-      <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Frame.h">
       <Filter>头文件</Filter>
@@ -160,6 +157,12 @@
     </ClInclude>
     <ClInclude Include="BaseIterator.h">
       <Filter>头文件\Iterator</Filter>
+    </ClInclude>
+    <ClInclude Include="fzUtil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewGlyph.h">
+      <Filter>头文件\glyph</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -9,8 +9,11 @@ class ParagraphGlyph : public BaseGlyph
 {
 public:
 	ParagraphGlyph(BaseGlyph *parent);
+	ParagraphGlyph();
 	virtual ~ParagraphGlyph();
 
+	RowFormat *setRowFormat(RowFormat *rowFormat);
+	RowFormat *getRowFormat();
 private:
 	RowFormat *m_rowFormat;
 

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Resource.h"
 #include "Frame.h"
+#include "SimpleCompositor.h"
 
 Frame* Frame::m_instance = NULL;
 
@@ -16,7 +17,7 @@ Frame::Frame()
 
 Frame::~Frame()
 {
-	delete m_view;
+	delete m_docment;
 	delete m_g;
 }
 
@@ -31,14 +32,15 @@ void Frame::init()
 	if (!m_hWnd)
 		throw _T("Frame : m_hWnd == NULL");
 
-	ShowWindow(m_hWnd, SW_SHOWNORMAL);
-	UpdateWindow(m_hWnd);
-
-	m_view = new View();
-
 	m_g = new Graphics();
 	m_g->setDc(GetDC(m_hWnd));
-	m_g->setRange();
+
+	m_docment = DocumentGlyph::createEmptyDoc();
+	m_docment->setCompositor(new SimpleCompositor());
+	m_view = m_docment->compose(m_g);
+
+	ShowWindow(m_hWnd, SW_SHOWNORMAL);
+	UpdateWindow(m_hWnd);
 }
 
 Frame *Frame::getInstance()
@@ -110,7 +112,8 @@ void Frame::update()
 
 	hdc = BeginPaint(m_hWnd, &ps);
 	// TODO: 在此添加任意绘图代码...
-	m_view->draw(m_g); 
+	m_g->setDc(hdc);
+	m_view->draw(m_g, 10, 10); 
 
 	EndPaint(m_hWnd, &ps);
 }

@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "PageFormat.h"
 
 PageFormat::PageFormat()
@@ -5,9 +6,34 @@ PageFormat::PageFormat()
 
 }
 
+PageFormat::PageFormat(int leftMargin, int rightMargin, int topMargin, int bottomMargin, int width, int height) :
+m_leftMargin(leftMargin), m_rightMargin(rightMargin), m_topMargin(topMargin), m_bottomMargin(bottomMargin), m_width(width), m_height(height)
+{
+}
+
 PageFormat::~PageFormat()
 {
 
+}
+
+void PageFormat::setWidth(int width)
+{
+	m_width = width;
+}
+
+int PageFormat::getWidth()
+{
+	return m_width;
+}
+
+void PageFormat::setHeight(int height)
+{
+	m_height = height;
+}
+
+int PageFormat::getHeight()
+{
+	return m_height;
 }
 
 void PageFormat::setLeftMargin(int margin)

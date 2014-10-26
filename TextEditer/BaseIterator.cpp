@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "BaseIterator.h"
 
 void BaseIterator::setContainer(std::list<BaseGlyph *> *container)

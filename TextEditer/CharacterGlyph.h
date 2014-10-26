@@ -11,15 +11,18 @@ class CharacterGlyph : public BaseGlyph
 {
 public:
 	CharacterGlyph(BaseGlyph *parent);
+	CharacterGlyph(TCHAR c, FzFont *font, FzSize *size, FzStyle *style);
+	CharacterGlyph();
 	virtual ~CharacterGlyph();
 
-	virtual void draw(Graphics *g);
+	virtual void getBound(Graphics *g, FzRect &rect);
+	virtual void draw(Graphics *g, int x, int y);
 
 private:
 	TCHAR m_c;
-	FzFont m_font;
-	FzSize m_size;
-	FzStyle  m_style;
+	FzFont *m_font;
+	FzSize *m_size;
+	FzStyle *m_style;
 };
 	
 #endif

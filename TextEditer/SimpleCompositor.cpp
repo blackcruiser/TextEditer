@@ -1,26 +1,117 @@
 #include "stdafx.h"
+#include "fzUtil.h"
 #include "SimpleCompositor.h"
 #include "BaseIterator.h"
+#include "RowGlyph.h"
+#include "PageGlyph.h"
+#include "DocumentGlyph.h"
+#include "ViewGlyph.h"
+#include "RowFormat.h"
+#include "PageFormat.h"
 
-BaseGlyph *SimpleCompositor::compose(Graphics *g, DocumentGlyph *document)
+BaseGlyph *SimpleCompositor::compose(Graphics *g, BaseGlyph *document)
 {
-	createPage(g, document);
-}
+	ViewGlyph *view;
+	std::list<BaseGlyph *> pageList;
 
-void SimpleCompositor::createPage(Graphics *g, DocumentGlyph *document)
-{
-	BaseIterator *iter;
+	createPage(g, document, pageList);
 
-	iter = document->createIterator();
-	for (iter->init(); iter->isEnd(); iter->next())
+	view = new ViewGlyph();
+	for (std::list<BaseGlyph *>::iterator pageIter = pageList.begin(); pageIter != pageList.end(); pageIter++)
 	{
-
+		view->addChild(*pageIter, -1);
+		(*pageIter)->setParent(view);
 	}
 
+	return view;
+
+}
+
+void SimpleCompositor::createPage(Graphics *g, BaseGlyph *document, std::list<BaseGlyph *> &pageList)
+{
+	BaseIterator *iter;
+	PageFormat *pageFormat;
+	PageGlyph *page;
+	std::list<BaseGlyph *> rowList;
+	FzRect rect;
+	int height ,pageHeight;
+
+	pageFormat = dynamic_cast<DocumentGlyph *>(document)->getPageFormat();
+	pageHeight = pageFormat->getHeight() - pageFormat->getTopMargin() - pageFormat->getBottomMargin();
+
+	iter = document->createIterator();
+	for (iter->init(); !iter->isEnd(); iter->next())
+		createRow(g, iter->getValue(), rowList);
+
+	height = 0;
+	page = new PageGlyph();
+	for (std::list<BaseGlyph *>::iterator rowIter = rowList.begin(); rowIter != rowList.end(); rowIter++)
+	{
+		(*rowIter)->getBound(g, rect);
+		height += rect.height;
+
+		if (height > pageHeight)
+		{
+			page->setFormat(pageFormat);
+			pageList.push_back(page);
+
+			page = new PageGlyph();
+			height = 0;
+		}
+
+		page->addChild(*rowIter, -1);
+		(*rowIter)->setParent(page);
+	}
+
+	page->setFormat(pageFormat);
+	pageList.push_back(page);
+	
 	delete iter;
 }
 
-void SimpleCompositor::createRow(Graphics *g, std::list<BaseGlyph *>::iterator iter)
+void SimpleCompositor::createRow(Graphics *g, BaseGlyph *paragraph, std::list<BaseGlyph *> &rowList)
 {
+	BaseIterator *iter;
+	BaseGlyph *charGlyph;
+	RowFormat *rowFormat;
+	RowGlyph *row;
+	FzRect rect;
+	int width, maxHeight, rowWidth;
 
+	width = maxHeight = 0;
+	iter = paragraph->createIterator();
+	rowFormat =	dynamic_cast<ParagraphGlyph *>(paragraph)->getRowFormat();
+	row = new RowGlyph();
+	rowWidth = rowFormat->getWidth() - rowFormat->getLeftIndent() - rowFormat->getRightIndent();
+
+	for (iter->init(); !iter->isEnd(); iter->next())
+	{
+		charGlyph = iter->getValue();
+		charGlyph->getBound(g, rect);
+		width += rect.width;
+
+		if (width <= rowWidth)
+		{
+			if (rect.height > maxHeight)
+				maxHeight = rect.height;
+		}
+		else
+		{
+			row->setFormat(rowFormat);
+			row->setHeight(maxHeight);
+			rowList.push_back(row);
+
+			row = new RowGlyph();
+			width = rect.width;
+			maxHeight = 0;
+		}
+		row->addChild(charGlyph, -1);
+		charGlyph->setParent(row);
+	}
+
+	row->setFormat(rowFormat);
+	row->setHeight(maxHeight);
+	rowList.push_back(row);
+
+	delete iter;
 }
