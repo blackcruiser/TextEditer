@@ -90,6 +90,22 @@ BaseIterator *BaseGlyph::createIterator()
 	return iter;
 }
 
+void BaseGlyph::setLoc(FzRect &rect)
+{
+	m_locRect.x = rect.x;
+	m_locRect.y = rect.y;
+	m_locRect.width = rect.width;
+	m_locRect.height = rect.height;
+}
+
+void BaseGlyph::setLoc(FzRect &rect)
+{
+	rect.x = m_locRect.x;
+	rect.y = m_locRect.y;
+	rect.width = m_locRect.width;
+	rect.height = m_locRect.height;
+}
+
 void BaseGlyph::getBound(Graphics *g, FzRect &rect)
 {
 	throw _T("draw : unsupport operation!");

@@ -15,11 +15,14 @@ public:
 
 	void setDc(HDC hDc);
 
+	void createCaret();
+	void setCaretPos(int x, int y);
 	void drawText(int x, int y, TCHAR *szBuffer, int len, FzFont *font, FzSize *size, FzStyle *style);
 	void getTextBound(TCHAR *szBuffer, int len, FzFont *font, FzSize *size, FzStyle *style, FzRect &rect);
 
 private:
 	HDC m_hDc;
+	HWND m_hWnd;
 	int m_x, m_y, m_width, m_height;
 };
 

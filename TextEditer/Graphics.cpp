@@ -16,6 +16,16 @@ void Graphics::setDc(HDC hDc)
 	m_hDc = hDc;
 }
 
+void Graphics::createCaret()
+{
+	CreateCaret(m_hWnd, NULL, 0, 0);
+}
+
+void Graphics::setCaretPos(int x, int y)
+{
+	SetCaretPos(x, y);
+}
+
 void Graphics::drawText(int x, int y, TCHAR *szBuffer, int len, FzFont *font, FzSize *size, FzStyle *style)
 {
 	HFONT temp, hFont;

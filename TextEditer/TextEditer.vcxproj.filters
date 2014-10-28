@@ -96,6 +96,9 @@
     <ClCompile Include="ViewGlyph.cpp">
       <Filter>源文件\glyph</Filter>
     </ClCompile>
+    <ClCompile Include="FzCaret.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -158,11 +161,14 @@
     <ClInclude Include="BaseIterator.h">
       <Filter>头文件\Iterator</Filter>
     </ClInclude>
-    <ClInclude Include="fzUtil.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="ViewGlyph.h">
       <Filter>头文件\glyph</Filter>
+    </ClInclude>
+    <ClInclude Include="FzUtil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FzCaret.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
