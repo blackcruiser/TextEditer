@@ -1,9 +1,8 @@
 #include "stdafx.h"
 #include "FzCaret.h"
 
-FzCaret::FzCaret(Graphics *g)
+FzCaret::FzCaret()
 {
-	g->createCaret();
 }
 
 FzCaret::~FzCaret()

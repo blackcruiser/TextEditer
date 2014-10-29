@@ -11,14 +11,15 @@ Graphics::~Graphics()
 {
 }
 
-void Graphics::setDc(HDC hDc)
+void Graphics::setWnd(HWND hWnd)
 {
-	m_hDc = hDc;
+	m_hWnd = hWnd;
+	m_hDc = GetDC(m_hWnd);
 }
 
-void Graphics::createCaret()
+void Graphics::createCaret(int width, int height)
 {
-	CreateCaret(m_hWnd, NULL, 0, 0);
+	CreateCaret(m_hWnd, NULL, width, height);
 }
 
 void Graphics::setCaretPos(int x, int y)

@@ -13,9 +13,9 @@ public:
 	Graphics();
 	~Graphics();
 
-	void setDc(HDC hDc);
+	void setWnd(HWND hWnd);
 
-	void createCaret();
+	void createCaret(int width, int height);
 	void setCaretPos(int x, int y);
 	void drawText(int x, int y, TCHAR *szBuffer, int len, FzFont *font, FzSize *size, FzStyle *style);
 	void getTextBound(TCHAR *szBuffer, int len, FzFont *font, FzSize *size, FzStyle *style, FzRect &rect);
