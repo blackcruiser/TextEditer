@@ -13,14 +13,22 @@ BaseGlyph *SimpleCompositor::compose(Graphics *g, BaseGlyph *document)
 {
 	ViewGlyph *view;
 	std::list<BaseGlyph *> pageList;
+	FzRect rect0, rect1;
 
 	createPage(g, document, pageList);
 
+	rect0.x = rect0.y = 0;
 	view = new ViewGlyph();
 	for (std::list<BaseGlyph *>::iterator pageIter = pageList.begin(); pageIter != pageList.end(); pageIter++)
 	{
+		(*pageIter)->getBound(g, rect1);
+		rect0.width = rect1.width;
+		rect0.height = rect1.height;
+
 		view->addChild(*pageIter, -1);
 		(*pageIter)->setParent(view);
+		(*pageIter)->setLoc(rect0);
+		rect0.height += rect1.height + 10;
 	}
 
 	return view;

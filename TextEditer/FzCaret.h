@@ -8,7 +8,7 @@
 class FzCaret
 {
 public:
-	FzCaret(Graphics *g);
+	FzCaret();
 	~FzCaret();
 
 	void setLoc(int x, int y);

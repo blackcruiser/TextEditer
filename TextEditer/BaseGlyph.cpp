@@ -98,7 +98,7 @@ void BaseGlyph::setLoc(FzRect &rect)
 	m_locRect.height = rect.height;
 }
 
-void BaseGlyph::setLoc(FzRect &rect)
+void BaseGlyph::getLoc(FzRect &rect)
 {
 	rect.x = m_locRect.x;
 	rect.y = m_locRect.y;

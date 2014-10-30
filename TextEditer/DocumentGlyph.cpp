@@ -4,7 +4,7 @@
 #include "CharacterGlyph.h"
 
 DocumentGlyph::DocumentGlyph(BaseGlyph *parent) :
-BaseGlyph(parent), m_compositor(NULL), m_pageFormat(NULL)
+BaseGlyph(parent), m_compositor(NULL), m_pageFormat(NULL), m_view(NULL)
 {
 }
 
@@ -17,6 +17,15 @@ m_compositor(NULL), m_pageFormat(NULL)
 DocumentGlyph::~DocumentGlyph()
 {
 
+}
+
+void DocumentGlyph::setCaret(Graphics *g, FzCaret *caret)
+{
+	m_caret = caret;
+	m_caret->setPhysicDoc(this);
+	m_caret->setLogicDoc(this->m_view);
+	m_caret->setLoc(0, 0);
+	m_caret->draw(g);
 }
 
 DocumentGlyph *DocumentGlyph::createEmptyDoc()
@@ -65,5 +74,8 @@ void DocumentGlyph::setCompositor(BaseCompositor *compositor)
 
 BaseGlyph *DocumentGlyph::compose(Graphics *g)
 {
-	return m_compositor->compose(g, this);
+	if (m_view)
+		delete m_view;
+	m_view = m_compositor->compose(g, this);
+	return m_view;
 }

@@ -6,6 +6,7 @@
 #include "BaseGlyph.h"
 #include "BaseCompositor.h"
 #include "PageFormat.h"
+#include "FzCaret.h"
 
 class DocumentGlyph : public BaseGlyph
 {
@@ -14,6 +15,8 @@ public:
 	DocumentGlyph();
 	virtual ~DocumentGlyph();
 	static DocumentGlyph *createEmptyDoc();
+
+	void setCaret(Graphics *g, FzCaret *caret);
 
 	PageFormat *setPageFormat(PageFormat *pageFormat);
 	PageFormat *getPageFormat();
@@ -25,6 +28,8 @@ public:
 private:
 	BaseCompositor *m_compositor;
 	PageFormat *m_pageFormat;
+	FzCaret *m_caret;
+	BaseGlyph *m_view;
 
 	
 };

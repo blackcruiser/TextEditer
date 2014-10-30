@@ -27,6 +27,11 @@ void Graphics::setCaretPos(int x, int y)
 	SetCaretPos(x, y);
 }
 
+void Graphics::showCaret()
+{
+	ShowCaret(m_hWnd);
+}
+
 void Graphics::drawText(int x, int y, TCHAR *szBuffer, int len, FzFont *font, FzSize *size, FzStyle *style)
 {
 	HFONT temp, hFont;

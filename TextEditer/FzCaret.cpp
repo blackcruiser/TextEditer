@@ -23,7 +23,7 @@ void FzCaret::setLoc(int x, int y)
 {
 	BaseIterator *pageIter, *rowIter, *charIter;
 	BaseGlyph *page, *row, *character;
-	FzRect rect;
+	FzRect pageRect, rowRect, charRect;
 	bool isFind;
 
 	pageIter = m_logicDoc->createIterator();
@@ -31,9 +31,9 @@ void FzCaret::setLoc(int x, int y)
 	for (pageIter->init(); !pageIter->isEnd(); pageIter->next())
 	{
 		page = pageIter->getValue();
-		page->getLoc(rect);
+		page->getLoc(pageRect);
 
-		if (rect.y <= y && y <= rect.y + rect.height - 1)
+		if (pageRect.y <= y && y <= pageRect.y + pageRect.height - 1)
 		{
 			isFind = true;
 			break;
@@ -42,10 +42,12 @@ void FzCaret::setLoc(int x, int y)
 
 	if (!isFind)
 	{
-		if (y > rect.y + rect.height - 1)
+		if (y > pageRect.y + pageRect.height - 1)
 			page = m_logicDoc->getChild(-1);
 		else
 			page = m_logicDoc->getChild(0);
+
+		page->getLoc(pageRect);
 	}
 
 	rowIter = page->createIterator();
@@ -53,9 +55,11 @@ void FzCaret::setLoc(int x, int y)
 	for (rowIter->init(); !rowIter->isEnd(); rowIter->next())
 	{
 		row = rowIter->getValue();
-		row->getLoc(rect);
+		row->getLoc(rowRect);
+		rowRect.x += pageRect.x;
+		rowRect.y += pageRect.y;
 
-		if (rect.y <= y && y <= rect.y + rect.height - 1)
+		if (rowRect.y <= y && y <= rowRect.y + rowRect.height - 1)
 		{
 			isFind = true;
 			break;
@@ -64,10 +68,14 @@ void FzCaret::setLoc(int x, int y)
 
 	if (!isFind)
 	{
-		if (y > rect.y + rect.height - 1)
+		if (y > rowRect.y + rowRect.height - 1)
 			row = page->getChild(-1);
 		else
 			row = page->getChild(0);
+
+		row->getLoc(rowRect);
+		rowRect.x += pageRect.x;
+		rowRect.y += pageRect.y;
 	}
 
 	charIter = row->createIterator();
@@ -75,9 +83,11 @@ void FzCaret::setLoc(int x, int y)
 	for (charIter->init(); !charIter->isEnd(); charIter->next())
 	{
 		character = charIter->getValue();
-		character->getLoc(rect);
+		character->getLoc(charRect);
+		charRect.x += rowRect.x;
+		charRect.y += rowRect.y;
 
-		if (rect.x <= x && x <= rect.x + rect.width - 1)
+		if (charRect.x <= x && x <= charRect.x + charRect.width - 1)
 		{
 			isFind = true;
 			break;
@@ -86,7 +96,7 @@ void FzCaret::setLoc(int x, int y)
 
 	if (!isFind)
 	{
-		if ( x > rect.x + rect.width - 1)
+		if ( x > charRect.x + charRect.width - 1)
 			character = row->getChild(-1);
 		else
 			character = row->getChild(0);
@@ -98,13 +108,17 @@ void FzCaret::setLoc(int x, int y)
 	m_paragraph = character->getParent();
 
 
-	character->getLoc(rect);
-	m_x = rect.x + rect.width - 1 + 1;
-	m_y = rect.y;
-	m_height = rect.height;
+	character->getLoc(charRect);
+	charRect.x += rowRect.x;
+	charRect.y += rowRect.y;
+	m_x = charRect.x + charRect.width - 1 + 1;
+	m_y = charRect.y;
+	m_height = charRect.height;
 }
 
 void FzCaret::draw(Graphics *g)
 {
-	g->SetCaretPos(m_x, m_y);
+	g->createCaret(0, m_height);
+	g->setCaretPos(m_x, m_y);
+	g->showCaret();
 }
