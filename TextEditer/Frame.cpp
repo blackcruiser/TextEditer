@@ -17,7 +17,7 @@ Frame::Frame()
 
 Frame::~Frame()
 {
-	delete m_docment;
+	delete m_document;
 	delete m_g;
 }
 
@@ -33,11 +33,13 @@ void Frame::init()
 		throw _T("Frame : m_hWnd == NULL");
 
 	m_g = new Graphics();
-	m_g->setDc(GetDC(m_hWnd));
+	m_g->setWnd(m_hWnd);
 
-	m_docment = DocumentGlyph::createEmptyDoc();
-	m_docment->setCompositor(new SimpleCompositor());
-	m_view = m_docment->compose(m_g);
+	m_document = DocumentGlyph::createEmptyDoc();
+	m_document->setCompositor(new SimpleCompositor());
+	m_view = m_document->compose(m_g);
+
+	m_document->setCaret(m_g, new FzCaret());
 
 	ShowWindow(m_hWnd, SW_SHOWNORMAL);
 	UpdateWindow(m_hWnd);
@@ -112,8 +114,7 @@ void Frame::update()
 
 	hdc = BeginPaint(m_hWnd, &ps);
 	// TODO: 在此添加任意绘图代码...
-	m_g->setDc(hdc);
-	m_view->draw(m_g, 10, 10); 
+	m_view->draw(m_g, 0, 0); 
 
 	EndPaint(m_hWnd, &ps);
 }

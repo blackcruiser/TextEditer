@@ -25,12 +25,15 @@ public:
     int getChildNum();
 	virtual BaseIterator *createIterator();
 
+	void getLoc(FzRect &rect);
+	void setLoc(FzRect &rect);
 	virtual void getBound(Graphics *g, FzRect &rect);
 	virtual void draw(Graphics *g, int x, int y);
 
 private:
 	BaseGlyph *m_parent;
 	std::list<BaseGlyph *> m_child;
+	FzRect m_locRect;
 };
 
 #endif

@@ -30,7 +30,7 @@ private:
 	TCHAR m_szWindowClass[MAX_LOADSTRING], m_szTitle[MAX_LOADSTRING];
 
 	HWND m_hWnd;
-	DocumentGlyph *m_docment;
+	DocumentGlyph *m_document;
 	BaseGlyph *m_view;
 	Graphics *m_g;
 

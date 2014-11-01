@@ -84,6 +84,7 @@
     <ClCompile Include="CharacterGlyph.cpp" />
     <ClCompile Include="DocumentGlyph.cpp" />
     <ClCompile Include="Frame.cpp" />
+    <ClCompile Include="FzCaret.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="PageFormat.cpp" />
     <ClCompile Include="PageGlyph.cpp" />
@@ -102,10 +103,11 @@
     <ClInclude Include="CharacterGlyph.h" />
     <ClInclude Include="DocumentGlyph.h" />
     <ClInclude Include="Frame.h" />
+    <ClInclude Include="FzCaret.h" />
     <ClInclude Include="FzFont.h" />
     <ClInclude Include="FzSize.h" />
     <ClInclude Include="FzStyle.h" />
-    <ClInclude Include="fzUtil.h" />
+    <ClInclude Include="FzUtil.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="PageFormat.h" />
     <ClInclude Include="PageGlyph.h" />
