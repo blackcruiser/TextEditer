@@ -1,27 +1,28 @@
 #include "stdafx.h"
 #include "Resource.h"
-#include "Frame.h"
+#include "FzController.h"
 #include "SimpleCompositor.h"
 
-Frame* Frame::m_instance = NULL;
+FzController* FzController::m_instance = NULL;
 
 LRESULT CALLBACK windowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	return Frame::getInstance()->wndProc(hWnd, message, wParam, lParam);
+	return FzController::getInstance()->wndProc(hWnd, message, wParam, lParam);
 }
 
 
-Frame::Frame()
+FzController::FzController()
 {
 }
 
-Frame::~Frame()
+FzController::~FzController()
 {
-	delete m_document;
+	delete m_doc;
+	delete m_view;
 	delete m_g;
 }
 
-void Frame::init()
+void FzController::init()
 {
 	LoadString((HINSTANCE)GetModuleHandle(0), IDS_APP_TITLE, m_szTitle, MAX_LOADSTRING);
 	LoadString((HINSTANCE)GetModuleHandle(0), IDS_APP_TITLE, m_szWindowClass, MAX_LOADSTRING);
@@ -30,30 +31,29 @@ void Frame::init()
 	m_hWnd = CreateWindow(m_szWindowClass, m_szTitle, WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, NULL, NULL, (HINSTANCE)GetModuleHandle(0), NULL);
 	if (!m_hWnd)
-		throw _T("Frame : m_hWnd == NULL");
+		throw _T("FzController : m_hWnd == NULL");
 
+	int c = GetLastError();
 	m_g = new Graphics();
 	m_g->setWnd(m_hWnd);
 
-	m_document = DocumentGlyph::createEmptyDoc();
-	m_document->setCompositor(new SimpleCompositor());
-	m_view = m_document->compose(m_g);
-
-	m_document->setCaret(m_g, new FzCaret());
+	m_doc = new FzDoc();
+	m_view = new FzView(m_doc, m_g);
+	m_doc->attach(m_view);
 
 	ShowWindow(m_hWnd, SW_SHOWNORMAL);
 	UpdateWindow(m_hWnd);
 }
 
-Frame *Frame::getInstance()
+FzController *FzController::getInstance()
 {
 	if (m_instance == NULL)
-		m_instance = new Frame();
+		m_instance = new FzController();
 
 	return m_instance;
 }
 
-ATOM Frame::registerClass()
+ATOM FzController::registerClass()
 {
 	WNDCLASSEX wcex;
 
@@ -74,7 +74,7 @@ ATOM Frame::registerClass()
 	return RegisterClassEx(&wcex);
 }
 
-LRESULT Frame::wndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+LRESULT FzController::wndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	int wmId, wmEvent;
 
@@ -107,14 +107,14 @@ LRESULT Frame::wndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	return 0;
 }
 
-void Frame::update()
+void FzController::update()
 {
 	PAINTSTRUCT ps;
 	HDC hdc;
 
 	hdc = BeginPaint(m_hWnd, &ps);
 	// TODO: 在此添加任意绘图代码...
-	m_view->draw(m_g, 0, 0); 
+	m_view->draw(); 
 
 	EndPaint(m_hWnd, &ps);
 }

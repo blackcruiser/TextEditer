@@ -6,6 +6,7 @@
 #include "FzFont.h"
 #include "FzSize.h"
 #include "FzStyle.h"
+#include "FzColor.h"
 
 class Graphics
 {
@@ -14,11 +15,14 @@ public:
 	~Graphics();
 
 	void setWnd(HWND hWnd);
+	
+	void getClientRect(FzRect &rect);
 
 	void createCaret(int width, int height);
 	void setCaretPos(int x, int y);
 	void showCaret();
 
+	void drawRect(FzRect *rect, FzColor *color);
 	void drawText(int x, int y, TCHAR *szBuffer, int len, FzFont *font, FzSize *size, FzStyle *style);
 	void getTextBound(TCHAR *szBuffer, int len, FzFont *font, FzSize *size, FzStyle *style, FzRect &rect);
 

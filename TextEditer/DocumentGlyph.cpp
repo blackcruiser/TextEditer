@@ -2,9 +2,10 @@
 #include "DocumentGlyph.h"
 #include "ParagraphGlyph.h"
 #include "CharacterGlyph.h"
+#include "SimpleCompositor.h"
 
 DocumentGlyph::DocumentGlyph(BaseGlyph *parent) :
-BaseGlyph(parent), m_compositor(NULL), m_pageFormat(NULL), m_view(NULL)
+BaseGlyph(parent), m_compositor(NULL), m_pageFormat(NULL)
 {
 }
 
@@ -19,15 +20,6 @@ DocumentGlyph::~DocumentGlyph()
 
 }
 
-void DocumentGlyph::setCaret(Graphics *g, FzCaret *caret)
-{
-	m_caret = caret;
-	m_caret->setPhysicDoc(this);
-	m_caret->setLogicDoc(this->m_view);
-	m_caret->setLoc(0, 0);
-	m_caret->draw(g);
-}
-
 DocumentGlyph *DocumentGlyph::createEmptyDoc()
 {
 	DocumentGlyph *doc = new DocumentGlyph(NULL);
@@ -37,6 +29,9 @@ DocumentGlyph *DocumentGlyph::createEmptyDoc()
 	FzFont *font = new FzFont();
 	FzSize *size = new FzSize();
 	FzStyle *style = new FzStyle();
+	BaseCompositor *compositor = new SimpleCompositor();
+
+	doc->setCompositor(compositor);
 
 	doc->setPageFormat(pageFormat);
 	doc->addChild(paragraph, -1);
@@ -74,8 +69,5 @@ void DocumentGlyph::setCompositor(BaseCompositor *compositor)
 
 BaseGlyph *DocumentGlyph::compose(Graphics *g)
 {
-	if (m_view)
-		delete m_view;
-	m_view = m_compositor->compose(g, this);
-	return m_view;
+	return m_compositor->compose(g, this);
 }

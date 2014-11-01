@@ -4,6 +4,7 @@
 #include "BaseIterator.h"
 #include "RowGlyph.h"
 #include "PageGlyph.h"
+#include "ParagraphGlyph.h"
 #include "DocumentGlyph.h"
 #include "ViewGlyph.h"
 #include "RowFormat.h"

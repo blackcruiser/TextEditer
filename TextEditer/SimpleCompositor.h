@@ -3,7 +3,6 @@
 
 #include "stdafx.h"
 #include "BaseCompositor.h"
-#include "ParagraphGlyph.h"
 
 class SimpleCompositor : public BaseCompositor
 {

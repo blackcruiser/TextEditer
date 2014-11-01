@@ -43,6 +43,18 @@
     <Filter Include="源文件\Iterator">
       <UniqueIdentifier>{136b6c51-6125-4c2e-bcb6-5e082ddcf639}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\MVC">
+      <UniqueIdentifier>{c12f4485-bfc6-44d6-b744-bd6f55a834f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\MVC">
+      <UniqueIdentifier>{90b8082e-192b-407a-af01-582d4c47ec6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Command">
+      <UniqueIdentifier>{576deddf-65c4-4e45-b533-f1b87334de64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Command">
+      <UniqueIdentifier>{fb0dbb29-1c3a-4bcf-80a0-3259a80daa62}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -65,9 +77,6 @@
     </ClCompile>
     <ClCompile Include="CharacterFormat.cpp">
       <Filter>源文件\formatter</Filter>
-    </ClCompile>
-    <ClCompile Include="Frame.cpp">
-      <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Application.cpp">
       <Filter>源文件</Filter>
@@ -99,6 +108,18 @@
     <ClCompile Include="FzCaret.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="FzDoc.cpp">
+      <Filter>源文件\MVC</Filter>
+    </ClCompile>
+    <ClCompile Include="FzView.cpp">
+      <Filter>源文件\MVC</Filter>
+    </ClCompile>
+    <ClCompile Include="FzController.cpp">
+      <Filter>源文件\MVC</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseCommand.cpp">
+      <Filter>源文件\Command</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -127,9 +148,6 @@
     </ClInclude>
     <ClInclude Include="CharacterFormat.h">
       <Filter>头文件\formatter</Filter>
-    </ClInclude>
-    <ClInclude Include="Frame.h">
-      <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Graphics.h">
       <Filter>头文件\GUI</Filter>
@@ -169,6 +187,21 @@
     </ClInclude>
     <ClInclude Include="FzCaret.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FzController.h">
+      <Filter>头文件\MVC</Filter>
+    </ClInclude>
+    <ClInclude Include="FzView.h">
+      <Filter>头文件\MVC</Filter>
+    </ClInclude>
+    <ClInclude Include="FzDoc.h">
+      <Filter>头文件\MVC</Filter>
+    </ClInclude>
+    <ClInclude Include="FzColor.h">
+      <Filter>头文件\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseCommand.h">
+      <Filter>头文件\Command</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

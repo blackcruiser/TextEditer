@@ -14,11 +14,6 @@ void FzCaret::setLogicDoc(BaseGlyph *doc)
 	m_logicDoc = doc;
 }
 
-void FzCaret::setPhysicDoc(BaseGlyph *doc)
-{
-	m_physicDoc = doc;
-}
-
 void FzCaret::setLoc(int x, int y)
 {
 	BaseIterator *pageIter, *rowIter, *charIter;
